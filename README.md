@@ -2,6 +2,11 @@
 
 An end-to-end, cloud-native data pipeline built entirely with free tools — ingesting Brazilian e-commerce data and enriching it with external APIs to answer business questions the raw data alone can't.
 
+## Live dashboard
+
+[View the interactive dashboard](https://datastudio.google.com/reporting/bdc37536-654b-44c0-80a6-ad0e2796684a)
+
+
 ## What it does
 
 - Ingests Olist's Brazilian e-commerce dataset (orders, customers, products, payments)
