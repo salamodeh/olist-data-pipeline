@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Cleaned orders data, one row per order"
+    columns:
+      - name: order_id
+        description: "Primary key for orders"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_customers
+    description: "Cleaned customer data"
+    columns:
+      - name: customer_id
+        description: "Primary key for customers"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_order_items
+    description: "Cleaned order line items"
+    columns:
+      - name: order_id
+        description: "Foreign key to orders"
+        tests:
+          - not_null
+
+  - name: stg_order_payments
+    description: "Cleaned payment data"
+
+  - name: stg_products
+    description: "Cleaned product catalog"
+    columns:
+      - name: product_id
+        description: "Primary key for products"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_sellers
+    description: "Cleaned seller data"
+    columns:
+      - name: seller_id
+        description: "Primary key for sellers"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_exchange_rates
+    description: "Daily BRL exchange rates from Frankfurter API"
+
+  - name: stg_holidays
+    description: "Brazilian public holidays from Nager.Date API"

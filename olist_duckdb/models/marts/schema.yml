@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: fct_orders_enriched
+    description: "Orders enriched with FX rates and holiday flags. One row per order."
+    columns:
+      - name: order_id
+        description: "Primary key, references stg_orders"
+        tests:
+          - unique
+          - not_null
+      - name: order_total_brl
+        description: "Total order value in Brazilian Real (items + freight)"
+      - name: order_total_usd
+        description: "Order value converted to USD using same-day exchange rate"
+      - name: is_holiday
+        description: "True if the order was placed on a Brazilian public holiday"
