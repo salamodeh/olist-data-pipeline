@@ -53,3 +53,6 @@ models:
 
   - name: stg_holidays
     description: "Brazilian public holidays from Nager.Date API"
+
+  - name: stg_product_category_translation
+    description: "Portuguese to English product category name mapping"
