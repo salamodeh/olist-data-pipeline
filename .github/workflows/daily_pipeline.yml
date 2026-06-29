@@ -33,7 +33,7 @@ jobs:
             outputs:
               dev:
                 type: duckdb
-                path: olist.duckdb
+                path: ${{ github.workspace }}/olist.duckdb
                 schema: raw
                 threads: 1
             target: dev
