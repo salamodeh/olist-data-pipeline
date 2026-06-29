@@ -39,6 +39,12 @@ jobs:
             target: dev
           EOF
 
+      - name: Verify dbt profile exists
+        run: |
+          echo "Checking for profiles.yml..."
+          ls -la ~/.dbt/
+          cat ~/.dbt/profiles.yml
+
       - name: Run dbt
         run: |
           cd olist_duckdb
