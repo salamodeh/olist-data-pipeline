@@ -39,18 +39,12 @@ jobs:
             target: dev
           EOF
 
-      - name: Verify dbt profile exists
-        run: |
-          echo "Checking for profiles.yml..."
-          ls -la ~/.dbt/
-          cat ~/.dbt/profiles.yml
-
-      - name: Run dbt
+      - name: Run dbt (API-fed models only)
         run: |
           cd olist_duckdb
           dbt deps
-          dbt run
-          dbt test
+          dbt run --select stg_exchange_rates stg_holidays
+          dbt test --select stg_exchange_rates stg_holidays
 
       - name: Upload DuckDB database as artifact
         uses: actions/upload-artifact@v4
