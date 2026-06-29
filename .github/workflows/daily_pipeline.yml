@@ -2,8 +2,8 @@ name: Daily Pipeline Run
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # Runs every day at 6:00 AM UTC
-  workflow_dispatch:       # Also allows manual triggering from GitHub
+    - cron: '0 6 * * *'
+  workflow_dispatch:
 
 jobs:
   run-pipeline:
@@ -25,7 +25,7 @@ jobs:
       - name: Run API ingestion
         run: python ingest_apis.py
 
-- name: Create dbt profile
+      - name: Create dbt profile
         run: |
           mkdir -p ~/.dbt
           cat > ~/.dbt/profiles.yml << EOF
