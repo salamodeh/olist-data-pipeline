@@ -32,8 +32,8 @@ select
     oi.total_price + oi.total_freight as order_total_brl,
     fx.usd_rate,
     fx.eur_rate,
-    round((oi.total_price + oi.total_freight) / fx.usd_rate, 2) as order_total_usd,
-    round((oi.total_price + oi.total_freight) / fx.eur_rate, 2) as order_total_eur,
+    round((oi.total_price + oi.total_freight) / nullif(fx.usd_rate, 0), 2) as order_total_usd,
+    round((oi.total_price + oi.total_freight) / nullif(fx.eur_rate, 0), 2) as order_total_eur,
     case when h.date is not null then true else false end as is_holiday,
     h.local_name as holiday_name
 from orders o

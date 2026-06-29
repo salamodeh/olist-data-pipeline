@@ -32,7 +32,6 @@ def load_olist():
                 write_disposition="replace"
             )
         )
-
     load_info = pipeline.run(resources)
     print(load_info)
 
