@@ -25,6 +25,20 @@ jobs:
       - name: Run API ingestion
         run: python ingest_apis.py
 
+- name: Create dbt profile
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml << EOF
+          olist_duckdb:
+            outputs:
+              dev:
+                type: duckdb
+                path: olist.duckdb
+                schema: raw
+                threads: 1
+            target: dev
+          EOF
+
       - name: Run dbt
         run: |
           cd olist_duckdb
